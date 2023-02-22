@@ -1,9 +1,9 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
- 
+
 class HomeController extends Controller
 {
     public function index(): View
@@ -13,25 +13,27 @@ class HomeController extends Controller
 
     public function about(): View
     {
-        $data1 = "About us - Online Store";
-        $data2 = "About us";
-        $description = "This is an about page ...";
-        $author = "Developed by: Alejandro Mc Ewen";
-        return view('home.about')->with("title", $data1)
-          ->with("subtitle", $data2)
-          ->with("description", $description)
-          ->with("author", $author);
+        $data1 = 'About us - Online Store';
+        $data2 = 'About us';
+        $description = 'This is an about page ...';
+        $author = 'Developed by: Alejandro Mc Ewen';
+
+        return view('home.about')->with('title', $data1)
+          ->with('subtitle', $data2)
+          ->with('description', $description)
+          ->with('author', $author);
     }
 
     public function contact(): View
     {
-        $data1 = "Contact us - Online Store";
-        $data2 = "Contact us";
-        $email = "onlinestore@email.com";
-        $phone = "XXXXXXXXX";
-        return view('home.contact')->with("title", $data1)
-          ->with("subtitle", $data2)
-          ->with("email", $email)
-          ->with("phone", $phone);
+        $data1 = 'Contact us - Online Store';
+        $data2 = 'Contact us';
+        $email = 'onlinestore@email.com';
+        $phone = 'XXXXXXXXX';
+
+        return view('home.contact')->with('title', $data1)
+          ->with('subtitle', $data2)
+          ->with('email', $email)
+          ->with('phone', $phone);
     }
 }
