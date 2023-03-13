@@ -14,18 +14,16 @@ class Comment extends Model
      * PRODUCT ATTRIBUTES
      * $this->attributes['id'] - int - contains the product primary key (id)
      * $this->attributes['description'] - string - contains the comment description
+     * $this->attributes['product_id'] - int - contains the product id
      * $this->product - Product - contains the associated Product
+     * $this->attributes['created_at'] - timestamp - contains the time created at
+     * $this->attributes['updated_at'] - timestamp - contains the time updated at
      */
     protected $fillable = ['description', 'product_id'];
 
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId(int $id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getDescription(): string
@@ -61,5 +59,15 @@ class Comment extends Model
     public function setProduct($product): void
     {
         $this->product = $product;
+    }
+
+    public function getCreatedAt(): int
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): int
+    {
+        return $this->attributes['updated_at'];
     }
 }

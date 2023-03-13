@@ -17,17 +17,14 @@ class Product extends Model
      * $this->attributes['name'] - string - contains the product name
      * $this->attributes['price'] - int - contains the product price
      * $this->comments - Comment[] - contains the associated comments
+     * $this->attributes['created_at'] - timestamp - contains the time created at
+     * $this->attributes['updated_at'] - timestamp - contains the time updated at
      */
     protected $fillable = ['name', 'price'];
 
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId($id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getName(): string
@@ -63,5 +60,15 @@ class Product extends Model
     public function setComments(Collection $comments): void
     {
         $this->comments = $comments;
+    }
+
+    public function getCreatedAt(): int
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): int
+    {
+        return $this->attributes['updated_at'];
     }
 }
