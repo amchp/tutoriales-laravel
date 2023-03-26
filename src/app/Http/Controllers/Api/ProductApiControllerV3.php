@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductCollection;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class ProductApiControllerV3 extends Controller
 {
@@ -19,5 +21,14 @@ class ProductApiControllerV3 extends Controller
     {
         $products = new ProductCollection(Product::paginate(5));
         return response()->json($products, 200);
+    }
+    
+    public function save(Request $request): JsonResponse
+    {
+        Product::validate($request);
+
+        $product = Product::create($request->only(['name', 'price']));
+
+        return response()->json($product);
     }
 }
